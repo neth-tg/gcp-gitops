@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: twingate-operator
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: twingate-operator
+    repoURL: ghcr.io/twingate/helmcharts
+    targetRevision: "*"
+    helm:
+      valuesObject:
+        twingateOperator:
+          network: nethworks
+          existingAPIKeySecret:
+            name: twingate-operator-api-token
+            key: TWINGATE_API_KEY
+        kubernetes-access-gateway:
+          enabled: true
+          twingate:
+            network: nethworks
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: twingate-operator
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
