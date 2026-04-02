@@ -18,9 +18,15 @@ spec:
             name: twingate-operator-api-token
             key: TWINGATE_API_KEY
         kubernetes-access-gateway:
-          enabled: true
+          enabled: true  # Enable Gateway subchart
           twingate:
             network: nethworks
+            resource:
+              # Annotate Gateway service as a Twingate resource
+              enabled: true
+              extraAnnotations:
+                resource.twingate.com/name: "argocd-k8s-gateway"
+                resource.twingate.com/alias: "neth-gcp-argo.int"
   destination:
     server: https://kubernetes.default.svc
     namespace: twingate-operator
