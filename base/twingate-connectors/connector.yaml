@@ -12,11 +12,11 @@ spec:
   containerExtra:
     resources:
       requests:
-        cpu: 314m
-        memory: 128Mi
+        cpu: 50m
+        memory: 64Mi
       limits:
-        cpu: 500m
-        memory: 128Mi
+        cpu: 200m
+        memory: 256Mi
   podExtra: {}
   podLabels: {}
   podAnnotations:
@@ -40,11 +40,11 @@ spec:
   containerExtra:
     resources:
       requests:
-        cpu: 314m
-        memory: 128Mi
+        cpu: 50m
+        memory: 64Mi
       limits:
-        cpu: 500m
-        memory: 128Mi
+        cpu: 200m
+        memory: 256Mi
   podExtra: {}
   podLabels: {}
   podAnnotations:
