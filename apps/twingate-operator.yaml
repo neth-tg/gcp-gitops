@@ -13,6 +13,7 @@ spec:
       valuesObject:
         twingateOperator:
           network: nethworks
+          remoteNetworkName: "argocd-k8s-operator"
           existingAPIKeySecret:
             name: twingate-operator-api-token
             key: TWINGATE_API_KEY
