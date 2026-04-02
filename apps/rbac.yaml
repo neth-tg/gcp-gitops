@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: twingate-neth-admin
+subjects:
+  - kind: User
+    name: 6612612+nethrose@users.noreply.github.com  # your Twingate identity as forwarded by the gateway
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: cluster-admin  # broad for learning, scope down later
+  apiGroup: rbac.authorization.k8s.io
